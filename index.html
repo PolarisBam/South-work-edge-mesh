@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>南工缘缘网</title>
+	<link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+	<div class="main">
+		<div class="floating-box">
+			<div class="content">
+				<div id="imge">
+					<img src="D:\item\HTML\图片\icon.png" alt="">
+				</div>
+				<div class="head-box">
+					<a href="登录.html">登录</a>
+				</div>
+			</div>
+		</div>
+		<div class="second-box">
+			<div class="blank-space">
+			</div>
+			<div class="seconds-box">
+				<div class="title-box">
+					<p id="title-main">漫步在我们友好而多元的社群里</p>
+					<p id="title-less">寻找与你志同道合的伙伴</p>
+					<div id="title-list">
+						<ul class="li">
+							<li>
+								<a href="">真实</a>
+								
+							</li>
+						</ul>
+						<ul class="li">
+							<li>
+								<a href="">便捷</a>
+								<p></p>
+							</li>
+						</ul>
+						<ul class="li">
+							<li>
+								<a href="">自由</a>
+							</li>
+						</ul>
+						<ul class="li">
+							<li>
+								<a href="">丰富</a>
+							</li>
+						</ul>						
+					</div>
+					<br>
+					<br>
+					<p>南工缘缘网是一个真实交友网站，每人的信息都是尽力保证其真实性。</p>	
+					<div>						
+					</div>
+					
+				</div>
+				<div class="container">
+					<div class="slides">
+						<div class="slide">
+							<img src="img/梁北晨.jpg" alt="">
+						</div>
+						<div class="slide">
+							<img src="img/刘树源.png" alt="">
+						</div>
+						<div class="slide">
+							<img src="img/马爽.png" alt="">
+						</div>
+						<div class="slide">
+							<img src="照片/王耀文.jpg" alt="">
+						</div>
+						<div class="slide">
+							<img src="照片/王文齐.jpg" alt="">
+						</div>
+						<div class="slide">
+							<img src="img/刘仁和.png" alt="">
+						</div>
+					</div>
+					<div class="prev">&#8249;</div>
+					<div class="next">&#8250;</div>
+					<div class="dots">
+						<div class="dot active"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>、
+						
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="seconds-box">
+					<img id="beatys" src="img/second.png" alt="">
+					<div class="title-box">
+						<h1>南工缘缘网</h1>
+						<p> 南工缘缘网是一个主要面对南工学子的全新交友平台，致力于为广大单身
+							和寻找朋友的人们提供一个互动、相互信任、真实而又安全的社交平台。我们
+							的宗旨是让每一个用户都能够在这里找到属于自己的那一颗星星，
+							结识志同道合的朋友或者甚至是未来的伴侣。同时，我们注重用户
+							的隐私保护，通过严格的审核机制和技术手段，保证用户信息的安全
+							和保密性。加入南工缘缘网，开启一段全新的交友之旅。</p>
+					</div>
+					<div class="title-box">
+						<h1>面向人群特征</h1>
+						<div>
+							<p class="name">南工学子</p>
+							<p 
+							
+							 class="data">87%</p>
+							<div class="progress-bar">
+								<div class="progress" style="width: 87%;"></div>
+							</div>
+							<p class="name">帅哥靓女</p>
+							<p class="data">96%</p>
+							<div class="progress-bar">
+								<div class="progress" style="width: 96%;"></div>
+							</div>
+							<p class="name">热情外向</p>
+							<p class="data">77%</p>
+							<div class="progress-bar">
+								<div class="progress" style="width: 77%;"></div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+			</div>
+			<div class="third">
+				<div class="third-box">
+					<img class="fimg" src="D:\item\HTML\图片\icon.png" alt="">
+					<p class="datas">希望合作请联系：2604843255@qq.com</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+<script>
+	var slides = document.querySelector('.slides');
+	var slide = document.querySelectorAll('.slide');
+	var prev = document.querySelector('.prev');
+	var next = document.querySelector('.next');
+	var dots = document.querySelectorAll('.dot');
+	var currentSlide = 0;
+	var slideInterval = setInterval(nextSlide, 3000);
+
+	function nextSlide() {
+		goToSlide(currentSlide + 1);
+	}
+
+	function prevSlide() {
+		goToSlide(currentSlide - 1);
+	}
+
+	function goToSlide(n) {
+		slide[currentSlide].classList.remove('active');
+		dots[currentSlide].classList.remove('active');
+		currentSlide = (n + slide.length) % slide.length;
+		console.log(dots.length);
+		slide[currentSlide].classList.add('active');
+		dots[currentSlide].classList.add('active');
+		slides.style.transform = 'translateX(-' + currentSlide * 100 + '%)';
+	}
+
+	prev.addEventListener('click', function () {
+		prevSlide();
+		clearInterval(slideInterval);
+		slideInterval = setInterval(nextSlide, 3000);
+	});
+
+	next.addEventListener('click', function () {
+		nextSlide();
+		clearInterval(slideInterval);
+		slideInterval = setInterval(nextSlide, 3000);
+	});
+
+	for (var i = 0; i < dots.length; i++) {
+		dots[i].addEventListener('click', function () {
+			var dotIndex = Array.from(dots).indexOf(this);
+			goToSlide(dotIndex);
+			clearInterval(slideInterval);
+			slideInterval = setInterval(nextSlide, 3000);
+		});
+	}
+	
+</script>
+</body>
+
+</html>

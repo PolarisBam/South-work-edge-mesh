@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .one {
+        height: 64px;
+        background-color: #7fb1f8;
+        /* background-color: rgb(214, 71, 176); */
+    }
+
+    .two {
+        border-radius: 6px;
+        margin: 30px 50px;
+        height: 372px;
+        width: 370px;
+        float: right;
+        background-color: #fff
+    }
+
+    .three {
+        height: 70px;
+        width: 370px;
+        font-size: large;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .four {
+        width: 290px;
+        height: 239px;
+        margin: 40px 40px 20px;
+    }
+
+    .five {
+        width: 266px;
+        height: 20px;
+        border-radius: 6px;
+        padding: 10px 12px;
+        margin: 10px 0;
+    }
+
+    #six {
+        color: #757587;
+    }
+
+    .seven {
+        width: 290px;
+        height: 40px;
+        padding: 0 20px;
+        text-align: center;
+        line-height: 40px;
+        margin: 12px 0 0 0;
+        background-color: aquamarine;
+        border-radius: 6px;
+    }
+
+    .eight {
+        width: 250px;
+        height: 16.4px;
+        margin: 15px 0px 0px;
+        text-align: center;
+        line-height: 16.4px;
+    }
+
+    .big {
+        height: 700px;
+        width: 100%;
+        background-image: url(照片/2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    a {
+        color: #757587;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: black;
+    }
+</style>
+
+<body>
+    <div class="one">
+    </div>
+    <div class="big">
+
+        <div class="two">
+            <div class="three">
+                登录缘缘网
+            </div>
+            <hr>
+            <div class="four">
+                <form method="get">
+                    <input type="text" class="five"id="username" name="username" placeholder="请输入帐号">
+                    <span></span>
+                    <input type="password" class="five"id="password" name="password" placeholder="请输入密码">
+                    <input type="checkbox" id="check"><span id="six">下次自动登录</span>
+                    <span> &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a
+                        href="#">忘记密码</a>
+                    <div>
+                        <button class="seven" id="aa">立即登录</button>
+                    </div>
+                    <div class="eight">
+                        <a href="注册.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;免费注册</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        var check = document.getElementById('check');
+        var label = document.getElementById('six');
+        var pa = false
+        var ma = false
+        var username = document.getElementById('username')
+        var password = document.getElementById('password')
+        var btn = document.getElementById('aa')
+        var key = ['username', 'password']
+        var form = document.querySelector('form');
+        btn.onclick = async () => {
+            event.preventDefault();
+            const xhr = new XMLHttpRequest()
+            var data
+            xhr.open('GET', 'http://127.0.0.1:3000/app')
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    data = JSON.parse(xhr.responseText);
+                    for (let j = 0; j < data.length; j++) {
+                        console.log(data[j][key[1]]);
+                        if (data[j][key[1]] === username.value) {
+                            ma = true
+                            if (password.value === data[j][key[1]])
+                                pa = true
+                            location.href = `主页.html?usename=${username.value}`
+                            console.log("1");
+                            if (!pa) {
+                                alert("错误")
+                                location.reload()
+                            }
+                        }
+                    }
+                    if(!ma)
+                        alert("密码错误")
+                }
+            }
+            xhr.send()
+        }
+    </script>
+</body>
+
+</html>
