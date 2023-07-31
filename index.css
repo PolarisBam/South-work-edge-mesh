@@ -1,0 +1,248 @@
+.floating-box {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  width: 100%;
+  height: 70px;
+  background-color: #feb7cf;
+  text-align: center;
+  z-index: 2;
+  /* 其他样式属性 */
+}
+.main{
+  height: 1555px;
+  width: 100%;
+  background-image: url('img/背景.png');
+  background-size: cover;
+}
+.content {
+  margin: 0 auto;
+  width: 70%;
+  height: 100px;
+  
+}
+
+.head-box {
+  float: right;
+  margin: 23px;
+  width: 70px;
+  height: 30px;
+  font-size: 14px;
+  background: #2f93df;
+  border-radius: 8px;
+  
+}
+a {
+  color: black;
+  display: grid; /* 将a标签设置为块级元素 */
+  text-align: center; /* 将文字居中 */
+  width: 100%; /* 设置a标签的宽度为100% */
+  line-height: 30px;
+  text-decoration:none
+
+}
+a:hover {
+  color: burlywood;
+}
+
+.li{
+padding-right: 40px;
+list-style: none;
+}
+#imge {
+  float: left;
+  width: 100px;
+}
+
+img {
+  margin: 0 auto;
+  width: 120px;
+  height: 90px;
+}
+
+.blank-space {
+  height: 100px;
+}
+
+.seconds-box {
+  margin: 0 auto;
+  width: 75%;
+  height: 700px;
+}
+
+.second-box {
+  height: 800px;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  overflow: hidden;
+  float: right;
+  height: 600px;
+  width: 400px;
+}
+
+.title-box {
+  float: left;
+  width: 550px;
+  margin-left: 50px;
+  margin-top: 40px;
+  word-wrap: break-word;
+}
+
+#title-main {
+  margin-top: 40px;
+  font-size: 50px;
+
+}
+
+#title-less {
+  margin-top: 0;
+  font-size: 30px;
+}
+
+#title-list {
+  float: left;
+  font-size: 25px;
+  padding: 0;
+  display: flex;
+  grid-template-columns: repeat(4, 20000px);
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+#beatys {
+  float: left;
+  height: 600px;
+  width: 400px;
+}
+
+.name {
+  float: left;
+}
+
+.data {
+  float: right;
+}
+
+.progress-bar {
+  float: left;
+  width: 100%;
+  height: 5px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 5px;
+}
+
+.third-box {
+  margin: 0 auto;
+  width: 75%;
+  word-wrap: break-word;
+}
+
+.datas {
+  color: #a6a7aa;
+  height: 30px;
+  width: 400px;
+  float: right;
+}
+
+.fimg {
+  height: 30px;
+  width: 50px;
+}
+
+.logon-box {
+  float: right;
+  margin-top: 25px;
+  width: 100px;
+  height: 80px;
+  color: #ffffff;
+  background-image: url("");
+}
+
+.slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  transform: translateX(0);
+  transition: transform 0.5s ease-out;
+}
+
+.slide {
+  flex: 1 0 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #f00;
+}
+
+.ad {
+  font-size: 25px;
+  float: left;
+}
